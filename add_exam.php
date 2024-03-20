@@ -33,10 +33,10 @@
                                     <form class="form-horizontal" method="POST" action="pages/exam.php" name="userform" enctype="multipart/form-data">
                                     <div class="form-group">
                                             <div class="row">
-                                                <label class="col-sm-3 control-label">Class</label>
+                                                <label class="col-sm-3 control-label">Filière</label>
                                                 <div class="col-sm-9">
-                                                    <select type="text" name="class_id" id="class_id" class="form-control"   placeholder="Class" required="">
-                                                        <option value="">--Select Class--</option>
+                                                    <select type="text" name="filiere" id="filiere" class="form-control"   placeholder="Class" required="">
+                                                        <option value="">--Select Filière--</option>
                                                             <?php  
                                                             $c1 = "SELECT * FROM `tbl_class`";
                                                             $result = $conn->query($c1);
@@ -59,37 +59,141 @@
 
                   <div class="form-group">
                     <div class="row">
-                        <label class="col-sm-3 control-label">Subject</label>
+                        <label class="col-sm-3 control-label">Module</label>
                         <div class="col-sm-9">
-                            <select type="text" name="subject_id" id="subject_id" class="form-control"   placeholder="Subject" required="">
-                                <option value="">--Select Subject--</option>
-                                    <?php  
-                                    $c1 = "SELECT * FROM `tbl_subject`";
-                                    $result = $conn->query($c1);
+                        <select type="text" name="module" id="module" class="form-control" placeholder="Surveillant" required="">
+                                                        <option value="">--Select Module</option>
+                                                            <?php  
+                                                            $c1 = "SELECT * FROM `tbl_subject`";
+                                                            $result = $conn->query($c1);
 
-                                    if ($result->num_rows > 0) {
-                                        while ($row = mysqli_fetch_array($result)) {?>
-                                            <option value="<?php echo $row["id"];?>" style="display: none;" data-id="<?php echo $row["class_id"];?>">
-                                                <?php echo $row['subjectname'];?>
-                                            </option>
-                                            <?php
-                                        }
-                                    } else {
-                                    echo "0 results";
-                                        }
-                                    ?>
-                            </select>
+                                                            if ($result->num_rows > 0) {
+                                                                while ($row = mysqli_fetch_array($result)) {?>
+                                                                    <option value="<?php echo $row["id"];?>">
+                                                                        <?php echo $row['subjectname'];?>
+                                                                    </option>
+                                                                    <?php
+                                                                }
+                                                            } else {
+                                                            echo "0 results";
+                                                                }
+                                                            ?>
+                                                    </select>
                         </div>
                     </div>
+
                 </div>
                 <div class="form-group">
-                                            <div class="row">
-                                                <label class="col-sm-3 control-label">Exam Name</label>
+                <div class="row">
+                                                <label class="col-sm-3 control-label">Semestre</label>
                                                 <div class="col-sm-9">
-                                                  <input type="text" name="name" class="form-control" placeholder="Exam Name" id="event" required="">
+                                                    <select type="text" name="semestre" id="semestre" class="form-control" placeholder="Surveillant" required="">
+                                                        <option value="">Select Semestre</option>
+                                                        <option value="s1">S1</option>
+                                                        <option value="s2">S2</option>
+                                                        <option value="s3">S3</option>
+                                                        <option value="s4">S4</option>
+                                                        <option value="s5">S5</option>
+                                                        <option value="s6">S6</option>
+                                                         
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
+                <div class="row">
+                                                <label class="col-sm-3 control-label">Surveillant 1</label>
+                                                <div class="col-sm-9">
+                                                    <select type="text" name="idUn" id="idUn" class="form-control" placeholder="Surveillant" required="">
+                                                        <option value="">--Select les Surveillant--</option>
+                                                            <?php  
+                                                            $c1 = "SELECT * FROM `tbl_teacher`";
+                                                            $result = $conn->query($c1);
+
+                                                            if ($result->num_rows > 0) {
+                                                                while ($row = mysqli_fetch_array($result)) {?>
+                                                                    <option value="<?php echo $row["id"];?>">
+                                                                        <?php echo $row['tfname'];?>
+                                                                    </option>
+                                                                    <?php
+                                                                }
+                                                            } else {
+                                                            echo "0 results";
+                                                                }
+                                                            ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <label class="col-sm-3 control-label">Surveillant 2</label>
+                                                <div class="col-sm-9">
+                                                    <select type="text" name="idDeux" id="idDeux" class="form-control" placeholder="Surveillant" required="">
+                                                        <option value="">--Select les Surveillant--</option>
+                                                            <?php  
+                                                            $c1 = "SELECT * FROM `tbl_teacher`";
+                                                            $result = $conn->query($c1);
+
+                                                            if ($result->num_rows > 0) {
+                                                                while ($row = mysqli_fetch_array($result)) {?>
+                                                                    <option value="<?php echo $row["id"];?>">
+                                                                        <?php echo $row['tfname'];?>
+                                                                    </option>
+                                                                    <?php
+                                                                }
+                                                            } else {
+                                                            echo "0 results";
+                                                                }
+                                                            ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <label class="col-sm-3 control-label">Surveillant 3</label>
+                                                <div class="col-sm-9">
+                                                    <select type="text" name="idTroix" id="idTrois" class="form-control" placeholder="Surveillant" required="">
+                                                        <option value="">--Select le Surveillant--</option>
+                                                            <?php  
+                                                            $c1 = "SELECT * FROM `tbl_teacher`";
+                                                            $result = $conn->query($c1);
+
+                                                            if ($result->num_rows > 0) {
+                                                                while ($row = mysqli_fetch_array($result)) {?>
+                                                                    <option value="<?php echo $row["id"];?>">
+                                                                        <?php echo $row['tfname'];?>
+                                                                    </option>
+                                                                    <?php
+                                                                }
+                                                            } else {
+                                                            echo "0 results";
+                                                                }
+                                                            ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                     
+                  <div class="form-group">
+                    <div class="row">
+                        <label class="col-sm-3 control-label">Local</label>
+                        <div class="col-sm-9">
+                        <select type="text" name="local" id="local" class="form-control" placeholder="Surveillant" required="">
+                                                        <option value="">--Select local</option>
+                                                            <?php  
+                                                            $c1 = "SELECT * FROM `room`";
+                                                            $result = $conn->query($c1);
+
+                                                            if ($result->num_rows > 0) {
+                                                                while ($row = mysqli_fetch_array($result)) {?>
+                                                                    <option value="<?php echo $row["id"];?>">
+                                                                        <?php echo $row['name'];?>
+                                                                    </option>
+                                                                    <?php
+                                                                }
+                                                            } else {
+                                                            echo "0 results";
+                                                                }
+                                                            ?>
+                                                    </select>
+                        </div>
+                    </div>
                                         <div class="form-group">
                                             <div class="row">
                                                 <label class="col-sm-3 control-label"> Date</label>
@@ -134,4 +238,13 @@
     $("#subject_id").children("option[data-id="+class_id+ "]").show();
     
   });
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap Select JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0/dist/js/bootstrap-select.min.js"></script>
+  <!-- Initialize Bootstrap Select -->
+  <script>
+    $(document).ready(function () {
+      $('.selectpicker').selectpicker();
+    });
+  </script>
 </script>
