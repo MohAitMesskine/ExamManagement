@@ -1,5 +1,4 @@
 <?php include('head.php');?>
-
 <?php include('header.php');?>
 <?php include('sidebar.php');?>
 
@@ -43,7 +42,7 @@
 
                                                             if ($result->num_rows > 0) {
                                                                 while ($row = mysqli_fetch_array($result)) {?>
-                                                                    <option value="<?php echo $row["id"];?>">
+                                                                    <option value="<?php echo $row["classname"];?>">
                                                                         <?php echo $row['classname'];?>
                                                                     </option>
                                                                     <?php
@@ -69,7 +68,7 @@
 
                                                             if ($result->num_rows > 0) {
                                                                 while ($row = mysqli_fetch_array($result)) {?>
-                                                                    <option value="<?php echo $row["id"];?>">
+                                                                    <option value="<?php echo $row["subjectname"];?>">
                                                                         <?php echo $row['subjectname'];?>
                                                                     </option>
                                                                     <?php
@@ -103,7 +102,7 @@
                 <div class="row">
                                                 <label class="col-sm-3 control-label">Surveillant 1</label>
                                                 <div class="col-sm-9">
-                                                    <select type="text" name="idUn" id="idUn" class="form-control" placeholder="Surveillant" required="">
+                                                    <select type="text" name="sur1" id="select1" onchange="hideOptions('select1')" class="form-control" placeholder="Surveillant" required="">
                                                         <option value="">--Select les Surveillant--</option>
                                                             <?php  
                                                             $c1 = "SELECT * FROM `tbl_teacher`";
@@ -111,7 +110,7 @@
 
                                                             if ($result->num_rows > 0) {
                                                                 while ($row = mysqli_fetch_array($result)) {?>
-                                                                    <option value="<?php echo $row["id"];?>">
+                                                                    <option value="<?php echo $row["tfname"];?>">
                                                                         <?php echo $row['tfname'];?>
                                                                     </option>
                                                                     <?php
@@ -126,7 +125,7 @@
                                             <div class="row">
                                                 <label class="col-sm-3 control-label">Surveillant 2</label>
                                                 <div class="col-sm-9">
-                                                    <select type="text" name="idDeux" id="idDeux" class="form-control" placeholder="Surveillant" required="">
+                                                    <select type="text" name="sur2"  id="select2" onchange="hideOptions('select2')" class="form-control" placeholder="Surveillant" required="">
                                                         <option value="">--Select les Surveillant--</option>
                                                             <?php  
                                                             $c1 = "SELECT * FROM `tbl_teacher`";
@@ -134,7 +133,7 @@
 
                                                             if ($result->num_rows > 0) {
                                                                 while ($row = mysqli_fetch_array($result)) {?>
-                                                                    <option value="<?php echo $row["id"];?>">
+                                                                    <option value="<?php echo $row["tfname"];?>">
                                                                         <?php echo $row['tfname'];?>
                                                                     </option>
                                                                     <?php
@@ -149,7 +148,7 @@
                                             <div class="row">
                                                 <label class="col-sm-3 control-label">Surveillant 3</label>
                                                 <div class="col-sm-9">
-                                                    <select type="text" name="idTroix" id="idTrois" class="form-control" placeholder="Surveillant" required="">
+                                                    <select type="text" name="sur3"  id="select3" onchange="hideOptions('select3')" class="form-control" placeholder="Surveillant" required="">
                                                         <option value="">--Select le Surveillant--</option>
                                                             <?php  
                                                             $c1 = "SELECT * FROM `tbl_teacher`";
@@ -157,7 +156,7 @@
 
                                                             if ($result->num_rows > 0) {
                                                                 while ($row = mysqli_fetch_array($result)) {?>
-                                                                    <option value="<?php echo $row["id"];?>">
+                                                                    <option value="<?php echo $row["tfname"];?>">
                                                                         <?php echo $row['tfname'];?>
                                                                     </option>
                                                                     <?php
@@ -182,7 +181,7 @@
 
                                                             if ($result->num_rows > 0) {
                                                                 while ($row = mysqli_fetch_array($result)) {?>
-                                                                    <option value="<?php echo $row["id"];?>">
+                                                                    <option value="<?php echo $row["name"];?>">
                                                                         <?php echo $row['name'];?>
                                                                     </option>
                                                                     <?php
@@ -242,6 +241,24 @@
   <!-- Bootstrap Select JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0/dist/js/bootstrap-select.min.js"></script>
   <!-- Initialize Bootstrap Select -->
+  <script>
+function hideOptions(selectedId) {
+  var selectedValue = document.getElementById(selectedId).value;
+  var selects = document.getElementsByTagName("select");
+
+  for (var i = 0; i < selects.length; i++) {
+    var options = selects[i].getElementsByTagName("option");
+
+    for (var j = 0; j < options.length; j++) {
+      if (options[j].value === selectedValue) {
+        options[j].style.display = "none";
+      } else {
+        options[j].style.display = "";
+      }
+    }
+  }
+}
+</script>
   <script>
     $(document).ready(function () {
       $('.selectpicker').selectpicker();

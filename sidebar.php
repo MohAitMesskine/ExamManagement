@@ -101,11 +101,6 @@
                      </ul>
                  </li>
                  <?php } } ?>
-
-
-
-
-
                  <?php if(isset($useroles)){  if(in_array("manage_class",$useroles)){ ?>
                  <!-- <li class="nav-label">Class</li> -->
                  <li> <a class="has-arrow" href="#" aria-expanded="false"><i class="fa fa-home"></i><span
@@ -134,7 +129,8 @@
                      </ul>
                  </li>
                  <?php } } ?>
-
+                 <li> <a href="iandex.php" aria-expanded="false"><i class="fa fa-window-maximize"></i>Imprimer Convocation</a>
+                 </li>
 
                  <?php if(isset($useroles)){  if(in_array("manage_user",$useroles)){ ?>
                  <li class="nav-label">Users</li>
@@ -174,19 +170,9 @@
                      </ul>
                  </li>
                  <?php } ?>
-
-
-
-
-
              </ul>
            
          </nav>
-
-
-
-
-
      </div>
 
  </div>

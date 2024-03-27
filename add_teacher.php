@@ -149,26 +149,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <label class="col-sm-3 control-label">Password</label>
-                                        <div class="col-sm-9">
-                                            <input type="password" name="password" id="password" placeholder="Password"
-                                                onkeyup='check();' class="form-control" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <label class="col-sm-3 control-label">Confirm Password</label>
-                                        <div class="col-sm-9">
-                                            <input type="password" name="cpassword" id="confirm_password"
-                                                placeholder="Confirm Password" onkeyup='check();' class="form-control"
-                                                required>
-                                            <span id="message"></span>
-                                        </div>
-                                    </div>
-                                </div>
+                               
 
 
                                 <div class="form-group">

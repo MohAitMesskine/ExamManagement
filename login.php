@@ -26,7 +26,7 @@ $salt = createSalt();
      $_SESSION["cne"] = $row['cne'];
      $_SESSION["cin"] = $row['cin'];
      $_SESSION["username"] = $row['username'];
-     $_SESSION["password"] = $row['password'];
+    //  $_SESSION["password"] = $row['password'];
      $_SESSION["email"] = $row['email'];
      $_SESSION["fname"] = $row['fname'];
      $_SESSION["lname"] = $row['lname'];
@@ -88,7 +88,7 @@ else {?>
                                 <center><img src="uploadImage/Logo/1.png" style="width:50%;"></center><br>
                                 <form method="POST">
                                     <div class="form-group">
-                                        <label>CNE</label>
+                                        <label>CNE||Nemuro_Matriculation</label>
                                         <input type="text" name="cne" class="form-control" placeholder="CNE" required="">
                                     </div>
                                     <div class="form-group">
@@ -97,7 +97,7 @@ else {?>
                                     </div>
                                     <div class="checkbox">
                                            <label class="pull-right">
-                                                <a href="forgot_password.php">Forgotten Password?</a>
+                                                <!-- <a href="forgot_password.php">Forgotten Password?</a> -->
                                            </label>   
                                     </div>
                                     <button type="submit" name="btn_login" class="btn btn-primary btn-flat m-b-30 m-t-30">Sign in</button>

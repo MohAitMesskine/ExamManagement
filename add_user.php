@@ -67,14 +67,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <label class="col-sm-3 control-label">Password</label>
-                                                <div class="col-sm-9">
-                                                    <input type="password" name="password" placeholder="Password"  class="form-control" required>
-                                                </div>
-                                            </div>
-                                        </div>
+                                       
 
                                           <div class="form-group">
                                             <div class="row">

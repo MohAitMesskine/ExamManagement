@@ -19,8 +19,21 @@ if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
     }else{
       $msg = "Failed to upload image";
     }
+    include 'connect.php';
+    $sql = "SELECT * FROM `tbl_teacher`";
+                                       
+     $result = $conn->query($sql);
+
+  //  while($row = $result->fetch_assoc()) { 
+  //  $sql1="SELECT * FROM `tbl_subject` WHERE id='".$row['subjectname']."'";
+  //    $result1=$conn->query($sql1);
+  //    $row1=$result1->fetch_assoc();
+  //    $sql2="SELECT * FROM `tbl_class` WHERE id='".$row['classname']."'";
+  //    $result2=$conn->query($sql2);
+  //    $row2=$result2->fetch_assoc();
+  //   } 
 extract($_POST);
-   $sql = "INSERT INTO admin (username, email,password, fname, lname, gender,  dob,contact,    address,created_on,image,group_id)VALUES ('user', '$email','$pass', '$fname', '$lname', '$gender', '$dob', '$contact', '$address','$current_date','$image','$group_id')";
+   $sql = "INSERT INTO admin (username, email, fname, lname, gender,  dob,contact,    address,created_on,image,group_id)VALUES ('user', '$email', '$fname', '$lname', '$gender', '$dob', '$contact', '$address','$current_date','$image','$group_id')";
  if ($conn->query($sql) === TRUE) {
       $_SESSION['success']=' Record Successfully Added';
      ?>

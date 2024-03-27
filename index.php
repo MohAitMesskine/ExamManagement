@@ -15,11 +15,11 @@
             
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-primary">Dashboard</h3> </div>
+                    <h3 class="text-primary">Acceuil</h3> </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Page</a></li>
+                        <li class="breadcrumb-item active">Acceuil</li>
                     </ol>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                                 $res = $conn->query($sql);
                                 $row=mysqli_fetch_array($res);?> 
                                     <h2 class="color-white"><?php echo $row[0];?></h2>
-                                    <p class="m-b-0">Total Enseignement</p>
+                                    <p class="m-b-0">Total Enseignements</p>
                                 </div>
                             </div>
                         </div>
@@ -55,7 +55,7 @@
                                 $res = $conn->query($sql);
                                 $row=mysqli_fetch_array($res);?>
                                     <h2 class="color-white"><?php echo $row[0];?></h2>
-                                    <p class="m-b-0">Total Etudiant</p>
+                                    <p class="m-b-0">Total Etudiants</p>
                                 </div>
                             </div>
                         </div>
@@ -71,7 +71,7 @@
                                 $res = $conn->query($sql);
                                 $row=mysqli_fetch_array($res);?>
                                     <h2 class="color-white"><?php echo $row[0];?></h2>
-                                    <p class="m-b-0">Total Classe</p>
+                                    <p class="m-b-0">Total Classes</p>
                                 </div>
                             </div>
                         </div>
@@ -87,7 +87,7 @@
                                 $res = $conn->query($sql);
                                 $row=mysqli_fetch_array($res);?> 
                                     <h2 class="color-white"><?php echo $row[0];?></h2>
-                                    <p class="m-b-0">Total Subject</p>
+                                    <p class="m-b-0">Total Modules</p>
                                 </div>
                             </div>
                         </div>
@@ -97,7 +97,7 @@
             </div>
              <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-primary">Voir  Exame</h3> </div>
+                    <h3 class="text-primary">Voir Liste Des Examens</h3> </div>
                 
             </div>
             <div class="card">

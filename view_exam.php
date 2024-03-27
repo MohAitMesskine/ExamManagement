@@ -38,12 +38,19 @@ if(isset($_GET['id']))
                
                  <div class="card">
                             <div class="card-body">
-                            <a href="add_exam.php"><button class="btn btn-primary">Add Exam</button></a>
+                            <a href="add_exam.php"><button class="btn btn-primary">Ajouter Examen</button></a>
                                 <div class="table-responsive m-t-40">
-                                    <table id="myTable" class="table table-bordered table-striped">
+                                    <table  class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Exam Name</th>
+                                                <th>Filiere</th>
+                                                <th>Module</th>
+                                                <th>Semestre</th>
+                                                <th>Surveillant</th>
+                                                <th>Local</th>
+                                                <th>Date</th>
+                                                <th>Start Time</th>
+                                                <th>End Time</th>
                                                 <th>Action</th> 
                                             </tr>
                                         </thead>
@@ -55,7 +62,14 @@ if(isset($_GET['id']))
                                    while($row = $result1->fetch_assoc()) { 
                                       ?>
                                             <tr>
-                                                <td><?php echo $row['name']; ?></td>
+                                                <td><?php echo $row['filiere']; ?></td>
+                                                <td><?php echo $row['module']; ?></td>
+                                                <td><?php echo $row['semestre']; ?></td>
+                                                <td><?php echo $row['surUn']."-".$row['surDeux']."-".$row['surTroix']; ?></td>
+                                                <td><?php echo $row['local']; ?></td>
+                                                <td><?php echo $row['exam_date']; ?></td>
+                                                <td><?php echo $row['start_time']; ?></td>
+                                                <td><?php echo $row['end_time']; ?></td>
                                                 <td>
                                                 <a href="view_exam.php?id=<?=$row['id'];?>"><button type="button" class="btn btn-xs btn-danger" ><i class="fa fa-trash"></i></button></a>
                                                 </td>

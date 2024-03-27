@@ -11,19 +11,31 @@ function createSalt()
 $salt = createSalt();
 $pass = hash('sha256', $salt . $passw);
 extract($_POST);
-   $sql = "INSERT INTO `tbl_teacher` (`matricule`,`cin`,`tfname`, `tlname`, `classname`, `subjectname`, `temail`,`password`, `tgender`, `tdob`, `tcontact`, `taddress`) VALUES ('$matricule','$cin','$tfname', '$tlname', '$classname', '$subjectname', '$temail','$pass', '$tgender', '$tdob', '$tcontact', '$taddress')";
-
- if ($conn->query($sql) === TRUE) {
-      $_SESSION['success']=' Record Successfully Added';
+   $sql = "INSERT INTO `tbl_teacher` (`matricule`,`cin`,`tfname`, `tlname`, `classname`, `subjectname`, `temail`, `tgender`, `tdob`, `tcontact`, `taddress`) VALUES ('$matricule','$cin','$tfname', '$tlname', '$classname', '$subjectname', '$temail','$tgender', '$tdob', '$tcontact', '$taddress')";
+   $req = "INSERT INTO admin (cne,cin,username, email) VALUES ('$matricule','$cin','professeur', '$temail')";
+  if ($conn->query($sql) === TRUE) {
+       $_SESSION['success']=' Record Successfully Added';
+      
      ?>
+     
 <script type="text/javascript">
 window.location="../view_teacher.php";
 </script>
 <?php
-} else {
+ } else {
       $_SESSION['error']='Something Went Wrong';
-?>
+ ?>
 <script type="text/javascript">
 window.location="../view_teacher.php";
 </script>
-<?php } ?>
+<?php 
+ }
+?>
+<?php
+ if ($conn->query($req) === TRUE) {
+  $_SESSION['success']=' Record Successfully Added';
+ }
+ else{
+  $_SESSION['error']='Something Went Wrong';
+ }
+ ?>
