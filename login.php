@@ -57,11 +57,11 @@ else {?>
   <div class="popup__background"></div>
   <div class="popup__content">
     <h3 class="popup__content__title">
-      Error 
+      Erreur
     </h1>
-    <p>Invalid Email or Password</p>
+    <p>Mot de Passe Incorect</p>
     <p>
-      <a href="login.php"><button class="button button--error" data-for="js_error-popup">Close</button></a>
+      <a href="login.php"><button class="button button--error" data-for="js_error-popup">Fermer</button></a>
     </p>
   </div>
 </div>

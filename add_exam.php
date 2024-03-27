@@ -110,7 +110,7 @@
 
                                                             if ($result->num_rows > 0) {
                                                                 while ($row = mysqli_fetch_array($result)) {?>
-                                                                    <option value="<?php echo $row["tfname"];?>">
+                                                                    <option value="<?php echo $row["id"];?>">
                                                                         <?php echo $row['tfname'];?>
                                                                     </option>
                                                                     <?php
@@ -133,7 +133,7 @@
 
                                                             if ($result->num_rows > 0) {
                                                                 while ($row = mysqli_fetch_array($result)) {?>
-                                                                    <option value="<?php echo $row["tfname"];?>">
+                                                                    <option value="<?php echo $row["id"];?>">
                                                                         <?php echo $row['tfname'];?>
                                                                     </option>
                                                                     <?php
@@ -156,7 +156,7 @@
 
                                                             if ($result->num_rows > 0) {
                                                                 while ($row = mysqli_fetch_array($result)) {?>
-                                                                    <option value="<?php echo $row["tfname"];?>">
+                                                                    <option value="<?php echo $row["id"];?>">
                                                                         <?php echo $row['tfname'];?>
                                                                     </option>
                                                                     <?php

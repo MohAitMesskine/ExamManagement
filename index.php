@@ -25,7 +25,26 @@
             </div>
             
             <div class="container-fluid">
-                
+        <?php
+        // session_start();
+
+        // Vérifiez si l'utilisateur est authentifié
+        if(isset($_SESSION['id']) && isset($_SESSION['username'])) {
+            // Récupérez l'ID de l'utilisateur
+            $user_id = $_SESSION['id'];
+        
+            // Récupérez le nom d'utilisateur de l'utilisateur
+            $username = $_SESSION['username'];
+        
+            // Affichez l'ID et le nom d'utilisateur sur la page d'accueil
+            echo "Bienvenue, $username (ID: $user_id)";
+        } else {
+            // Redirigez l'utilisateur vers la page de connexion s'il n'est pas authentifié
+            header("Location: login.php");
+            exit();
+        }
+        ?>
+       
         
                       <div class="row">
                     <div class="col-md-4">
