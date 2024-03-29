@@ -25,7 +25,7 @@
              $result_header_logo = $conn->query($sql_header_logo);
              $row_header_logo = mysqli_fetch_array($result_header_logo);
              ?>
-                        <b><img src="img/logo.png" alt="homepage" class="dark-logo" style="width:100%;height:auto;"/></b>
+                        <b><img src="./img/logo.png" alt="homepage" class="dark-logo" style="width:100%;height:auto;"/></b>
                     </a>
                 </div>
                 

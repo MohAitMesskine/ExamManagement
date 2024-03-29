@@ -96,7 +96,6 @@ if(isset($_GET['id']))
                                                 <th>Filière</th>
                                                 <th>Module</th>
                                                 <th>Semestre</th>
-                                                
                                                 <th>Local</th>
                                                 <th>Date</th>
                                                 <th>Date Début</th>

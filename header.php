@@ -25,7 +25,7 @@
              $result_header_logo = $conn->query($sql_header_logo);
              $row_header_logo = mysqli_fetch_array($result_header_logo);
              ?>
-                        <b><img src="img/logo.png" alt="homepage"  class="dark-logo img-fluid" style="width:250px;height: 93px;"/></b>
+                        <b><img src="./img/logo.png" alt="homepage"  class="dark-logo img-fluid" style="width:250px;height: 93px;"/></b>
                     </a>
                 </div>
                 
@@ -60,14 +60,14 @@
                                       $image = $row['image'];
                                     }
                                                                     ?>
-                                <img src="uploadImage/Profile/<?=$image?>" alt="user" class="profile-pic" /></a>
+                                <img src="img/logo.png" alt="user" class="profile-pic" /></a>
                             <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                                 <ul class="dropdown-user">
                                     <li><a href="profile.php"><i class="ti-user"></i> Profile</a></li>
                                    
-                                     <li><a href="changepassword.php"><i class="ti-key"></i> Changed Password</a></li>
+                                     <!-- <li><a href="changepassword.php"><i class="ti-key"></i> Changed Password</a></li> -->
                                   
-                                    <li><a href="logout.php"><i class="fa fa-power-off"></i> Logout</a></li>
+                                    <li><a href="logout.php"><i class="fa fa-power-off"></i> Quitter</a></li>
                                 </ul>
                             </div>
                         </li>

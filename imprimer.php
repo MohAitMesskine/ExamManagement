@@ -8,7 +8,9 @@
   </head>
 </head>
 <body>
-    <h1>Convocation_Surveillance</h1>
+<img src="./fpo.jpg" class="rounded mx-auto d-block" width="100px" height="50px" alt="...">
+    <h2 class="text-center ">ConvocationSurveillance</h2>
+    <div></div><br><br>
 <div class="page-wrapper" style="margin: top 60px;">
             
         
@@ -24,8 +26,8 @@
                                             <tr>
                                                 <th>Numero_Matricule</th>
                                                 <th>CIN</th>
-                                                <th>lname</th>          
-                                                <th>fname</th>
+                                                <th>Nom</th>          
+                                                <th>Prenom</th>
                                                 
                                               
                                             </tr>

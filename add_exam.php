@@ -9,6 +9,7 @@
 
 ?>
 
+
         <div class="page-wrapper">
            
             <div class="row page-titles">
@@ -21,7 +22,15 @@
                     </ol>
                 </div>
             </div>
-            
+            <?php
+// Récupérer le message d'erreur s'il est présent dans l'URL
+$message = isset($_GET['erreur']) ? $_GET['erreur'] : '';
+
+// Afficher le message d'erreur
+if (!empty($message)) {
+    echo '<alert>' . htmlspecialchars($message) . '</alert>';
+}
+?>
             <div class="container-fluid">
                 
                 <div class="row">
@@ -146,7 +155,7 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <label class="col-sm-3 control-label">Surveillant 3</label>
+                                                <label class="col-sm-3 control-label">Surveillant 3--</label>
                                                 <div class="col-sm-9">
                                                     <select type="text" name="sur3"  id="select3" onchange="hideOptions('select3')" class="form-control" placeholder="Surveillant" required="">
                                                         <option value="">--Select le Surveillant--</option>
@@ -174,7 +183,7 @@
                         <label class="col-sm-3 control-label">Local</label>
                         <div class="col-sm-9">
                         <select type="text" name="local" id="local" class="form-control" placeholder="Surveillant" required="">
-                                                        <option value="">--Select local</option>
+                                                        <option value="">--Select local--</option>
                                                             <?php  
                                                             $c1 = "SELECT * FROM `room`";
                                                             $result = $conn->query($c1);
@@ -259,9 +268,17 @@ function hideOptions(selectedId) {
   }
 }
 </script>
+
+
+
+<script>
+
+
+
+
+
   <script>
     $(document).ready(function () {
       $('.selectpicker').selectpicker();
     });
   </script>
-</script>
