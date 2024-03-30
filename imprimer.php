@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <div><img src="img/fpo.jpg" style="display: block; margin: 0 auto; max-width: 300px;"></div>
+    <div><img src="./fpo.jpg" style="display: block; margin: 0 auto; max-width: 300px;"></div>
     <div><br><h1>Liste de Surveillance</h1></div><br>
     <div class="page-wrapper" style="margin-top: 60px;">
         <div class="container-fluid">

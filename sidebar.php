@@ -124,13 +124,20 @@
                          <li><a href="view_room.php">Modifier Salle</a></li>
                          <li><a href="add_exam.php">Ajouter Examen</a></li>
                          <li><a href="view_exam.php">Liste Examens</a></li>
-                         <li><a href="add_allotment.php">Ajouter Attribution</a></li>
-                         <li><a href="view_allotment.php">Voir Attribution</a></li>
+                         <!-- <li><a href="add_allotment.php">Ajouter Attribution</a></li> -->
+                         <!-- <li><a href="view_allotment.php">Voir Attribution</a></li> -->
                      </ul>
                  </li>
                  <?php } } ?>
+
+                 <?php if($_SESSION["username"]=='admin') { ?>
                  <li> <a href="Convocation_prof.php" aria-expanded="false"><i class="fa fa-window-maximize"></i>Imprimer Convocation</a>
                  </li>
+                 <?php } ?>
+
+
+
+
 
                  <?php if(isset($useroles)){  if(in_array("manage_user",$useroles)){ ?>
                  <li class="nav-label">Users</li>
@@ -169,6 +176,16 @@
                          <li><a href="report_exam.php">Examen Raport</a></li>
                      </ul>
                  </li>
+                 <?php } ?>
+                 <?php if($_SESSION["username"]=='etudiant') { ?>
+                    <li> <a href="Convocation_etudiant.php" aria-expanded="false"><i class="fa fa-window-maximize"></i>Imprimer Convocation</a>
+                 </li>
+                 
+                 <?php } ?>
+                 <?php if($_SESSION["username"]=='professeur') { ?>
+                    <li> <a href="Convocation_prof.php" aria-expanded="false"><i class="fa fa-window-maximize"></i>Imprimer Convocation</a>
+                 </li>
+                 
                  <?php } ?>
              </ul>
            
