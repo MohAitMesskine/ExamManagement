@@ -43,8 +43,8 @@ if(isset($_GET['id']))
                                     <table  class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Filiere</th>
-                                                <th>Module</th>
+                                                <th>Filière</th>
+                                                <th>Exam Module</th>
                                                 <th>Semestre</th>
                                                 <th>Surveillant</th>
                                                 <th>Local</th>
@@ -65,7 +65,10 @@ if(isset($_GET['id']))
                                                 <td><?php echo $row['filiere']; ?></td>
                                                 <td><?php echo $row['module']; ?></td>
                                                 <td><?php echo $row['semestre']; ?></td>
-                                                <td><?php echo $row['surUn']."-".$row['surDeux']."-".$row['surTroix']; ?></td>
+                                                <td><?php
+                                                echo $row['surUn']."<br/>".$row['surDeux']."<br/>".$row['surTroix'];
+                                               
+                                                 ?></td>
                                                 <td><?php echo $row['local']; ?></td>
                                                 <td><?php echo $row['exam_date']; ?></td>
                                                 <td><?php echo $row['start_time']; ?></td>
@@ -73,6 +76,7 @@ if(isset($_GET['id']))
                                                 <td>
                                                 <a href="view_exam.php?id=<?=$row['id'];?>"><button type="button" class="btn btn-xs btn-danger" ><i class="fa fa-trash"></i></button></a>
                                                 </td>
+                                               
                                             </tr>
                                           <?php } ?>
                                         </tbody>

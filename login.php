@@ -6,11 +6,11 @@
   include('connect.php');
 if(isset($_POST['btn_login']))
 {
-echo $_POST['cne'];
+// echo $_POST['cne'];
 $unm = $_POST['cne'];
 
 $passw = $_POST['cin'];
-echo $passw;
+// echo $passw;
 function createSalt()
 {
     return '2123293dsj2hu2nikhiljdsd';
@@ -30,7 +30,7 @@ $salt = createSalt();
      $_SESSION["email"] = $row['email'];
      $_SESSION["fname"] = $row['fname'];
      $_SESSION["lname"] = $row['lname'];
-     $_SESSION["image"] = $row['image'];
+    //  $_SESSION["image"] = $row['image'];
      $count=mysqli_num_rows($result);
      if($count==1 && isset($_SESSION["cne"]) && isset($_SESSION["cin"])) {
     {       

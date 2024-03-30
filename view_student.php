@@ -47,15 +47,14 @@ if(isset($_GET['id']))
                                             <tr>
                                                 <th>CNE</th>
                                                 <th>CIN</th>
-                                                <th>First Name</th>
-                                                <th>Last Name</th>
-                                                <th>Class</th>
-                                                <th>Email</th>
-                                                <th>Gender</th>
-                                                <th>Birth Date</th>
-                                                <th>Contact No.</th>
-                                               <th>Address</th>
+                                                <th>Nom</th>
+                                                <th>Prenom</th>
+                                                <th>Date Naissaance</th>
+                                                <th>Semestre</th>
+                                                <th>Filiere</th>
+                                                <th>Situation</th>
                                                 <th>Action</th>
+                                              
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -63,23 +62,20 @@ if(isset($_GET['id']))
                                     include 'connect.php';
                                     $sql = "SELECT * FROM `tbl_student`";
                                      $result = $conn->query($sql);
-$i=0;
+
                                    while($row = $result->fetch_assoc()) { 
-                                    $sql2 = "SELECT * FROM `tbl_class` WHERE id='".$row['classname']."'";
-                                     $result2=$conn->query($sql2);
-                                     $row2=$result2->fetch_assoc();
+                                   
                                       ?>
                                             <tr>
                                                 <td><?php echo $row['cne']; ?></td>
                                                 <td><?php echo $row['cin']; ?></td>
-                                                <td><?php echo $row['sfname']; ?></td>
-                                                <td><?php echo $row['slname']; ?></td>
-                                                <td><?php echo $row2['classname']; ?></td>
-                                                <td><?php echo $row['semail']; ?></td>
-                                                <td><?php echo $row['sgender']; ?></td>
-                                                <td><?php echo $row['sdob']; ?></td>
-                                                <td><?php echo $row['scontact']; ?></td>
-                                                <td><?php echo $row['saddress']; ?></td>
+                                                <td><?php echo $row['nom']; ?></td>
+                                                <td><?php echo $row['prenom']; ?></td>
+                                                <td><?php echo $row['dateN']; ?></td>
+                                                <td><?php echo $row['semestre']; ?></td>
+                                                <td><?php echo $row['filiere']; ?></td>
+                                                <td><?php echo $row['situation']; ?></td>
+                                               
                                                 
                                                 <td>
             <?php if(isset($useroles)){  if(in_array("edit_student",$useroles)){ ?> 
@@ -92,7 +88,7 @@ $i=0;
                                                
                                                 </td>
                                             </tr>
-                                          <?php  $i++;} 
+                                          <?php  } 
                                           ?>
 
                                         </tbody>

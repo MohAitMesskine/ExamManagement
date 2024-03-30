@@ -3,7 +3,7 @@
 
 <?php include('sidebar.php');?>   
 <?php
- date_default_timezone_set('Asia/Kolkata');
+//  date_default_timezone_set('Asia/Kolkata');
  $current_date = date('Y-m-d');
 
  $sql_currency = "select * from manage_website"; 
@@ -37,7 +37,7 @@
             $username = $_SESSION['username'];
         
             // Affichez l'ID et le nom d'utilisateur sur la page d'accueil
-            echo "Bienvenue, $username (ID: $user_id)";
+            // echo "Bienvenue, $username (ID: $user_id)";
         } else {
             // Redirigez l'utilisateur vers la page de connexion s'il n'est pas authentifié
             header("Location: login.php");
@@ -126,7 +126,8 @@
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Exam Name</th>
+                                                <th>Exam Module</th>
+                                                <th>Filiere</th>
                                                 <th>Action</th> 
                                             </tr>
                                         </thead>
@@ -138,7 +139,8 @@
                                    while($row = $result1->fetch_assoc()) { 
                                       ?>
                                             <tr>
-                                                <td><?php echo $row['name']; ?></td>
+                                            <td><?php echo $row['module']; ?></td>
+                                                <td><?php echo $row['filiere']; ?></td>
                                                 <td>
                                                 <a href="view_exam.php?id=<?=$row['id'];?>"><button type="button" class="btn btn-xs btn-danger" ><i class="fa fa-trash"></i></button></a>
                                                 </td>

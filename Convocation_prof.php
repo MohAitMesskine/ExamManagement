@@ -36,100 +36,99 @@ if(isset($_GET['id']))
             
             <div class="container-fluid">
                
-                 <div class="card">
-                            <div class="card-body">
-                            <a href="imprimer.php" target="_blank" class="btn btn-primary">Imprimer</a>
-                            <div class="table-responsive m-t-40">
-                                    <table  class="table table-bordered table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>Numero_Matricule</th>
-                                                <th>CIN</th>
-                                                <th>lname</th>
-                                                
-                                                <th>fname</th>
-                                                
-                                              
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                    <?php 
-                                    include 'connect.php';
-                       
-                                    $user_id = $_SESSION['id'];
-                                    $sql2 = "SELECT * FROM  admin where id=$user_id ;";
-                                    $result2 = $conn->query($sql2);
-                                   
-                                   while($row = $result2->fetch_assoc()) { 
-                                      ?>
-                  
-                                            <tr>
-                                            <td><?php echo$row['cne']; ?></td>
-                                            <td><?php echo$row['cin']; ?></td>
-                                                <td><?php echo $row['lname']; ?></td>
-                                                <td><?php echo $row['fname']; ?></td>
-                                            
-                                            </tr>
-                                          <?php } ?>
-                                        </tbody>
-                                    </table>
-                                </div>
+           <section class="section">
+              <style>
+                                    .table-striped tbody tr:nth-of-type(odd) {
+                                                  background-color: #CCCCCC;
+                                                     }
 
+.table-striped tbody tr:nth-of-type(even) {
+    background-color: #FFFFFF;
+}
 
+.table-striped tbody tr td {
+    font-weight: bold;
+    color: #000000;
+}
+.table td {
+    text-align: center;
+    
+}
 
+                                  </style>
 
+<div class="row">
+   <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"><div class="card"><div class="card-body"><h5 class="card-title">Liste de Surveillance</h5>
+    <form action="imprimer.php" method="POST">
+           <div class="d-grid gap-2 mt-3">
+                   <input id="saveForm" class="btn btn-primary" type="submit" name="submit" value="IMPRIMER">
+           </div>
+       </form>
+       <br>
+       <table  class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>CIN</th>
+                                    <th>Nom</th>          
+                                    <th>Prénom</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php 
+                                include 'connect.php';
+                                // session_start();
+                                $user_id = $_SESSION['id'];
+                                $sql2 = "SELECT * FROM  admin  where id=$user_id ;";
+                                $result2 = $conn->query($sql2);
+                               
+                                while($row = $result2->fetch_assoc()) { 
+                                ?>
+                                <tr>
+                                  <?php  $a = $row['fname']; ?>
+                                    <td><?php echo$row['cne']; ?></td>
+                                    <td><?php echo$row['cin']; ?></td>
+                                    <td><?php echo $row['lname']; ?></td>
+                                    <td><?php echo $row['fname']; ?></td>
+                                </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
 
+                              
+       <br>
+       <table class="table table-hover table-bordered border-primary table-striped">
+    <thead>
+        <tr style="background-color:#aed6f1 ;">
+            <th scope="col">FILIERE</th>
+            <th scope="col">SEMESTRE</th>
+            <th scope="col">MODULE &amp; HEURE</th>
+            <th scope="col">LOCAL</th>
+            <th scope="col">DATE</th>
+            <th scope="col">HEURE DEBUT</th>
+            <th scope="col">HEURE FIN</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php 
+            include 'connect.php';
+            $sql1 = "SELECT * FROM  `exam` ,`tbl_teacher` where tbl_teacher.tfname =exam.surUn";
+            $result1 = $conn->query($sql1);
+            while($row = $result1->fetch_assoc()) { 
+        ?>
+        <tr>
+            <td><?php echo $row['filiere']; ?></td>
+            <td><?php echo $row['semestre']; ?></td>
+            <td><?php echo $row['module']; ?></td>
+            <td><?php echo $row['local']; ?></td>
+            <td><?php echo $row['exam_date']; ?></td>
+            <td><?php echo $row['start_time']; ?></td>
+            <td><?php echo $row['end_time']; ?></td>
+        </tr>
+        <?php } ?>
+    </tbody>
+</table>
 
-
-
-
-
-
-
-
-
-
-                                <div class="table-responsive m-t-40">
-                                    <table  class="table table-bordered table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>Filière</th>
-                                                <th>Module</th>
-                                                <th>Semestre</th>
-                                                <th>Local</th>
-                                                <th>Date</th>
-                                                <th>Date Début</th>
-                                                <th>Date Fin</th>
-                                              
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                    <?php 
-                                    include 'connect.php';
-                       
-                                  $sql1 = "SELECT * FROM  `exam` ,`tbl_teacher` where  exam.surUn=tbl_teacher.id or exam.surDeux=tbl_teacher.id  or exam.surTroix=tbl_teacher.id";
-                                  
-                                 
-                                  $result1 = $conn->query($sql1);
-                                   while($row = $result1->fetch_assoc()) { 
-                                      ?>
-                  
-                                            <tr>
-                                            <td><?php echo $row['filiere']; ?></td>
-                                                <td><?php echo $row['module']; ?></td>
-                                                <td><?php echo $row['semestre']; ?></td>
-                                                <td><?php echo $row['local']; ?></td>
-                                                <td><?php echo $row['exam_date']; ?></td>
-                                                <td><?php echo $row['start_time']; ?></td>
-                                                <td><?php echo $row['end_time']; ?></td>
-                                               
-                                            </tr>
-                                          <?php } ?>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
                
                 
 
@@ -141,7 +140,7 @@ if(isset($_GET['id']))
   <div class="popup__background"></div>
   <div class="popup__content">
     <h3 class="popup__content__title">
-      Success 
+      Succès
     </h1>
     <p><?php echo $_SESSION['success']; ?></p>
     <p>

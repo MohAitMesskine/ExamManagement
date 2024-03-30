@@ -37,14 +37,7 @@
                                     <form class="form-horizontal" method="POST" action="pages/save_student.php" name="studentform" enctype="multipart/form-data">
 
                                    <input type="hidden" name="currnt_date" class="form-control" value="<?php echo $currnt_date;?>">
-                                   <div class="form-group">
-                                            <div class="row">
-                                                <label class="col-sm-3 control-label">Numéro  d'examen</label>
-                                                <div class="col-sm-9">
-                                                  <input type="text" name="stud_id" class="form-control" placeholder="Numéro d'examen" id="event" required>
-                                                </div>
-                                            </div>
-                                        </div>
+                                
                                         <div class="form-group">
                                             <div class="row">
                                                 <label class="col-sm-3 control-label">CNE</label>
@@ -65,7 +58,7 @@
                                             <div class="row">
                                                 <label class="col-sm-3 control-label">Nom</label>
                                                 <div class="col-sm-9">
-                                                  <input type="text" name="sfname" class="form-control" placeholder="First Name" id="event" onkeydown="return alphaOnly(event);" required="">
+                                                  <input type="text" name="nom" class="form-control" placeholder="First Name" id="event" onkeydown="return alphaOnly(event);" required="">
                                                 </div>
                                             </div>
                                         </div>
@@ -74,24 +67,48 @@
                                             <div class="row">
                                                 <label class="col-sm-3 control-label">Prenom</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text"  name="slname" id="lname" class="form-control" id="event" onkeydown="return alphaOnly(event);" placeholder="Last Name" required="">
+                                                    <input type="text"  name="prenom" id="lname" class="form-control" id="event" onkeydown="return alphaOnly(event);" placeholder="Last Name" required="">
                                                 </div>
                                             </div>
                                         </div>
-
+                                        <div class="form-group">
+                                              <div class="row">
+                                                <label class="col-sm-3 control-label">Date Naissance</label>
+                                                <div class="col-sm-9">
+                                                  <input type="date" name="dateN" class="form-control" placeholder="Birth Date">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                <div class="row">
+                                                <label class="col-sm-3 control-label">Semestre</label>
+                                                <div class="col-sm-9">
+                                                    <select type="text" name="semestre" id="semestre" class="form-control" placeholder="Surveillant" required="">
+                                                        <option value="">Select Semestre</option>
+                                                        <option value="s1">S1</option>
+                                                        <option value="s2">S2</option>
+                                                        <option value="s3">S3</option>
+                                                        <option value="s4">S4</option>
+                                                        <option value="s5">S5</option>
+                                                        <option value="s6">S6</option>
+                                                         
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="form-group">
                                             <div class="row">
-                                                <label class="col-sm-3 control-label">Class</label>
+                                                <label class="col-sm-3 control-label">Filiere</label>
                                                 <div class="col-sm-9">
-                                                    <select type="text" name="classname" class="form-control"   placeholder="Class" required="">
-                                                        <option value="">--Select Class--</option>
+                                                    <select type="text" name="filiere" class="form-control"   placeholder="Class" required="">
+                                                        <option value="">--Select Filiere--</option>
                                                             <?php  
                                                             $c1 = "SELECT * FROM `tbl_class`";
                                                             $result = $conn->query($c1);
 
                                                             if ($result->num_rows > 0) {
                                                                 while ($row = mysqli_fetch_array($result)) {?>
-                                                                    <option value="<?php echo $row["id"];?>">
+                                                           <option>          <?php echo $row['classname'];?>
                                                                         <?php echo $row['classname'];?>
                                                                     </option>
                                                                     <?php
@@ -104,70 +121,15 @@
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <label class="col-sm-3 control-label">Email</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" name="semail" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  placeholder="Email" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <label class="col-sm-3 control-label">Password</label>
-                                                <div class="col-sm-9">
-                                                    <input type="password" name="password" id="password" placeholder="Password"  onkeyup='check();'  class="form-control" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <label class="col-sm-3 control-label">Confirm Password</label>
-                                                <div class="col-sm-9">
-                                                    <input type="password" name="cpassword" id="confirm_password" placeholder="Confirm Password"  onkeyup='check();'  class="form-control" required>
-                                                    <span id="message"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                       
                                           <div class="form-group">
                                             <div class="row">
-                                                <label class="col-sm-3 control-label">Gender</label>
+                                                <label class="col-sm-3 control-label">Situation</label>
                                                 <div class="col-sm-9">
-                                                   <select name="sgender" id="gender" class="form-control" required="">
-                                                    <option value="">--Select Gender--</option>
-                                                     <option value="Male">Male</option>
-                                                      <option value="Female">Female</option>
+                                                   <select name="situation" id="gender" class="form-control" required="">
+                                                    <option value="">--situation--</option>
+                                                     <option value="inscrit">Inscrit</option>
+                                                      <option value="non-inscrit">Non Inscrit</option>
                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                              <div class="row">
-                                                <label class="col-sm-3 control-label">Date Of Birth</label>
-                                                <div class="col-sm-9">
-                                                  <input type="date" name="sdob" class="form-control" placeholder="Birth Date">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <label class="col-sm-3 control-label">Parents Contact</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" name="scontact" class="form-control" placeholder="Parents Contact Number" id="tbNumbers" minlength="10" maxlength="10" onkeypress="javascript:return isNumber(event)" required="">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                         <div class="form-group">
-                                            <div class="row">
-                                                <label class="col-sm-3 control-label">Address</label>
-                                                <div class="col-sm-9">
-                                                    <textarea class="form-control" rows="4" name="saddress" placeholder="Address" style="height: 120px;"></textarea>
                                                 </div>
                                             </div>
                                         </div>
