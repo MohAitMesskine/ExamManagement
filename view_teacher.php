@@ -42,7 +42,7 @@ if(isset($_GET['id']))
                           <?php } } ?>
                                 <div class="table-responsive m-t-40">
                                   <!-- id="myTable" -->
-                                    <table  class="table table-bordered table-striped">
+                                    <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
                                             <th>Matricule</th>
@@ -91,11 +91,11 @@ if(isset($_GET['id']))
                                                 
                                                 <td>
             <?php if(isset($useroles)){  if(in_array("edit_teacher",$useroles)){ ?> 
-                                                <a href="edit_teacher.php?id=<?=$row['id'];?>"><button type="button" class="btn btn-xs btn-primary" ><i class="fa fa-plus-square"></i></button></a>
+                                                <a href="edit_teacher.php?id=<?=$row['idT'];?>"><button type="button" class="btn btn-xs btn-primary" ><i class="fa fa-plus-square"></i></button></a>
                                               <?php } } ?>
 
             <?php if(isset($useroles)){  if(in_array("delete_teacher",$useroles)){ ?> 
-                                                <a href="view_teacher.php?id=<?=$row['id'];?>"><button type="button" class="btn btn-xs btn-danger" ><i class="fa fa-trash"></i></button></a>
+                                                <a href="view_teacher.php?id=<?=$row['idT'];?>"><button type="button" class="btn btn-xs btn-danger" ><i class="fa fa-trash"></i></button></a>
                                               <?php } } ?>
                                                 
                                                 </td>

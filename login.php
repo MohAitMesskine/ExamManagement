@@ -21,7 +21,7 @@ $salt = createSalt();
  $sql = "SELECT * FROM admin WHERE cne='" .$unm . "' and cin = '". $passw."'";
     $result = mysqli_query($conn,$sql);
     $row  = mysqli_fetch_array($result);
-   echo
+  //  echo
      $_SESSION["id"] = $row['id'];
      $_SESSION["cne"] = $row['cne'];
      $_SESSION["cin"] = $row['cin'];
