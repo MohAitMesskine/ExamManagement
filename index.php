@@ -112,6 +112,7 @@
                         </div>
                     </div>
 
+
                 
             </div>
              <div class="row page-titles">
@@ -128,6 +129,9 @@
                                             <tr>
                                                 <th>Exam Module</th>
                                                 <th>Filiere</th>
+                                                <th>Local</th>
+                                                <th>Date</th>
+                                                <th>End Time</th>
                                                 <th>Action</th> 
                                             </tr>
                                         </thead>
@@ -141,6 +145,9 @@
                                             <tr>
                                             <td><?php echo $row['module']; ?></td>
                                                 <td><?php echo $row['filiere']; ?></td>
+                                                <td><?php echo $row['local']; ?></td>
+                                                <td><?php echo $row['exam_date']; ?></td>
+                                                <td><?php echo $row['start_time']; ?></td>
                                                 <td>
                                                 <a href="view_exam.php?id=<?=$row['id'];?>"><button type="button" class="btn btn-xs btn-danger" ><i class="fa fa-trash"></i></button></a>
                                                 </td>

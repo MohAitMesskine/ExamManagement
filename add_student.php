@@ -100,15 +100,15 @@
                                             <div class="row">
                                                 <label class="col-sm-3 control-label">Filiere</label>
                                                 <div class="col-sm-9">
-                                                    <select type="text" name="filiere" class="form-control"   placeholder="Class" required="">
-                                                        <option value="">--Select Filiere--</option>
+                                                <select type="text" name="filiere" id="filiere" class="form-control"   placeholder="Class" required="">
+                                                        <option value="">--Select Filière--</option>
                                                             <?php  
                                                             $c1 = "SELECT * FROM `tbl_class`";
                                                             $result = $conn->query($c1);
 
                                                             if ($result->num_rows > 0) {
                                                                 while ($row = mysqli_fetch_array($result)) {?>
-                                                           <option>          <?php echo $row['classname'];?>
+                                                                    <option value="<?php echo $row["classname"];?>">
                                                                         <?php echo $row['classname'];?>
                                                                     </option>
                                                                     <?php

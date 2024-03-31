@@ -113,15 +113,32 @@
                      </ul>
                  </li>
                  <?php } } ?>
+
+
+                 <?php if(isset($useroles)){  if(in_array("manage_class",$useroles)){ ?>
+                 <!-- <li class="nav-label">Class</li> -->
+                 <li> <a class="has-arrow" href="#" aria-expanded="false"><i class="fa fa-home"></i><span
+                             class="hide-menu">Gestion Des Salles</span></a>
+                     <ul aria-expanded="false" class="collapse">
+                         <?php if(isset($useroles)){  if(in_array("add_class",$useroles)){ ?>
+                            <li><a href="add_room.php">Ajouter Salle</a></li>
+                         <?php } } ?>
+                         <li><a href="view_room.php">Liste Des Salle</a></li>
+                     </ul>
+                 </li>
+                 <?php } } ?>
+
+
+                 
                  <?php if(isset($useroles)){  if(in_array("manage_exam",$useroles)){ ?>
                  <!-- <li class="nav-label">Class</li> -->
                  <li> <a class="has-arrow" href="#" aria-expanded="false"><i class="fa fa-home"></i><span
                              class="hide-menu">Gestion Examen </span></a>
                      <ul aria-expanded="false" class="collapse">
-                         <li><a href="add_roomtype.php">Ajouter Type Salle</a></li>
-                         <li><a href="view_roomtype.php">Voir Type Salle</a></li>
-                         <li><a href="add_room.php">Ajouter Salle</a></li>
-                         <li><a href="view_room.php">Modifier Salle</a></li>
+                         <!-- <li><a href="add_roomtype.php">Ajouter Type Salle</a></li>
+                         <li><a href="view_roomtype.php">Voir Type Salle</a></li> -->
+                         <!-- <li><a href="add_room.php">Ajouter Salle</a></li> -->
+                         <!-- <li><a href="view_room.php">Modifier Salle</a></li> -->
                          <li><a href="add_exam.php">Ajouter Examen</a></li>
                          <li><a href="view_exam.php">Liste Examens</a></li>
                          <!-- <li><a href="add_allotment.php">Ajouter Attribution</a></li> -->
@@ -129,6 +146,8 @@
                      </ul>
                  </li>
                  <?php } } ?>
+
+               
 
                  <?php if($_SESSION["username"]=='admin') { ?>
                  <li> <a href="Convocation_prof.php" aria-expanded="false"><i class="fa fa-window-maximize"></i>Imprimer Convocation</a>
@@ -140,42 +159,42 @@
 
 
                  <?php if(isset($useroles)){  if(in_array("manage_user",$useroles)){ ?>
-                 <li class="nav-label">Users</li>
+                 <!-- <li class="nav-label">Users</li>
                  <li> <a class="has-arrow" href="#" aria-expanded="false"><i class="fa fa-user-plus"></i><span
                              class="hide-menu">User Management</span></a>
-                     <ul aria-expanded="false" class="collapse">
+                     <ul aria-expanded="false" class="collapse"> -->
                          <?php if(isset($useroles)){  if(in_array("add_user",$useroles)){ ?>
-                         <li><a href="add_user.php">Ajouter Utilisateur</a></li>
+                         <!-- <li><a href="add_user.php">Ajouter Utilisateur</a></li> -->
                          <?php } } ?>
-                         <li><a href="view_user.php">Voir Utilisateur</a></li>
+                         <!-- <li><a href="view_user.php">Voir Utilisateur</a></li>
                      </ul>
-                 </li>
+                 </li> -->
                  <?php } } ?>
 
                  <?php if($_SESSION["username"]=='admin') { ?>
-                 <li> <a class="has-arrow" href="#" aria-expanded="false"><i class="fa fa-lock"></i><span
+                 <!-- <li> <a class="has-arrow" href="#" aria-expanded="false"><i class="fa fa-lock"></i><span
                              class="hide-menu">Utilisateur Permissions</span></a>
                      <ul aria-expanded="false" class="collapse">
                          <li><a href="assign_role.php">assigner rôle</a></li>
                          <li><a href="view_role.php">Voir Rôle</a></li>
                      </ul>
-                 </li>
+                 </li> -->
 
-                 <li> <a class="has-arrow" href="#" aria-expanded="false"><i class="fa fa-cog"></i><span
+                 <!-- <li> <a class="has-arrow" href="#" aria-expanded="false"><i class="fa fa-cog"></i><span
                              class="hide-menu">Setting</span></a>
                      <ul aria-expanded="false" class="collapse">
                          <li><a href="manage_website.php">Appearance Management</a></li>
                          <li><a href="email_config.php">Email Management</a></li>
                      </ul>
-                 </li>
-                 <li class="nav-label">Reports</li>
+                 </li> -->
+                 <!-- <li class="nav-label">Reports</li>
                  <li> <a class="has-arrow" href="#" aria-expanded="false"><i class="fa fa-file"></i><span
                              class="hide-menu">Report Management</span></a>
                      <ul aria-expanded="false" class="collapse">
                          <li><a href="today_exam.php">Examen today</a></li>
                          <li><a href="report_exam.php">Examen Raport</a></li>
                      </ul>
-                 </li>
+                 </li> -->
                  <?php } ?>
                  <?php if($_SESSION["username"]=='etudiant') { ?>
                     <li> <a href="Convocation_etudiant.php" aria-expanded="false"><i class="fa fa-window-maximize"></i>Imprimer Convocation</a>

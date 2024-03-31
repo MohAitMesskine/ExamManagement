@@ -22,6 +22,9 @@ $salt = createSalt();
     $result = mysqli_query($conn,$sql);
     $row  = mysqli_fetch_array($result);
   //  echo
+
+
+  try {
      $_SESSION["id"] = $row['id'];
      $_SESSION["cne"] = $row['cne'];
      $_SESSION["cin"] = $row['cin'];
@@ -30,6 +33,11 @@ $salt = createSalt();
      $_SESSION["email"] = $row['email'];
      $_SESSION["fname"] = $row['fname'];
      $_SESSION["lname"] = $row['lname'];
+    }
+    catch(Exception $e) {
+     
+    }
+   
     //  $_SESSION["image"] = $row['image'];
      $count=mysqli_num_rows($result);
      if($count==1 && isset($_SESSION["cne"]) && isset($_SESSION["cin"])) {

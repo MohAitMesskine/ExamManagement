@@ -33,31 +33,8 @@
                                     <form class="form-horizontal" method="POST" action="pages/room.php" name="userform" enctype="multipart/form-data">
 
                                    <input type="hidden" name="currnt_date" class="form-control" value="<?php echo $currnt_date;?>">
-                                   <div class="form-group">
-                                            <div class="row">
-                                                <label class="col-sm-3 control-label">Room Type</label>
-                                                <div class="col-sm-9">
-                                                    <select type="text" name="type_id" class="form-control"   placeholder="Room Type" required="">
-                                                        <option value="">--Select Room Type--</option>
-                                                            <?php  
-                                                            $c1 = "SELECT * FROM `room_type`";
-                                                            $result = $conn->query($c1);
-
-                                                            if ($result->num_rows > 0) {
-                                                                while ($row = mysqli_fetch_array($result)) {?>
-                                                                    <option value="<?php echo $row["id"];?>">
-                                                                        <?php echo $row['roomname'];?>
-                                                                    </option>
-                                                                    <?php
-                                                                }
-                                                            } else {
-                                                            echo "0 results";
-                                                                }
-                                                            ?>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
+                                  
+                                               
                                         <div class="form-group">
                                             <div class="row">
                                                 <label class="col-sm-3 control-label"> Name</label>

@@ -13,8 +13,8 @@ $salt = createSalt();
 extract($_POST);
 echo $cne;
 echo $cin;
-   $sql = "INSERT INTO `tbl_student`(`cne`,`cin`,`nom`, `prenom`, `dateN`, `semestre`,`filiere`, `situation`) VALUES ('cne','$cin','$nom', '$prenom', '$dateN', '$semestre','$filiere','$situation')";
-   $req = "INSERT INTO admin (cne,cin,username,email,fname,lname) VALUES ('$cne','$cin','etudiant', '$temail','$tfname','$tlname')";
+   $sql = "INSERT INTO `tbl_student`(`cne`,`cin`,`nom`, `prenom`, `dateN`, `semestre`,`filiere`, `situation`) VALUES ('$cne','$cin','$nom', '$prenom', '$dateN', '$semestre','$filiere','$situation')";
+   $req = "INSERT INTO admin (cne,cin,username,email,fname,lname) VALUES ('$cne','$cin','etudiant', '$temail','$nom','$prenom')";
   if ($conn->query($req) === TRUE) {
        $_SESSION['success']=' Record Successfully Added';
       

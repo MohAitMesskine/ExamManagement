@@ -28,9 +28,22 @@ $message = isset($_GET['erreur']) ? $_GET['erreur'] : '';
 
 // Afficher le message d'erreur
 if (!empty($message)) {
-    echo '<alert>' . htmlspecialchars($message) . '</alert>';
-}
+
+
+  $a= htmlspecialchars($message) ;
+  ?>
+<div class="alert alert-danger" role="alert">
+<?php  echo  $a= htmlspecialchars($message) ; ?>
+</div>
+       
+        <?php
+       
+         }
+    
+  
 ?>
+
+
             <div class="container-fluid">
                 
                 <div class="row">
@@ -282,3 +295,15 @@ function hideOptions(selectedId) {
       $('.selectpicker').selectpicker();
     });
   </script>
+  <script src="js/lib/jquery/jquery.min.js"></script>
+
+<script src="js/lib/bootstrap/js/popper.min.js"></script>
+<script src="js/lib/bootstrap/js/bootstrap.min.js"></script>
+
+<script src="js/jquery.slimscroll.js"></script>
+
+<script src="js/sidebarmenu.js"></script>
+
+<script src="js/lib/sticky-kit-master/dist/sticky-kit.min.js"></script>
+
+<script src="js/custom.min.js"></script>
