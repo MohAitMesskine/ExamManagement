@@ -95,9 +95,9 @@
                              class="hide-menu"> Gestion Module</span></a>
                      <ul aria-expanded="false" class="collapse">
                          <?php if(isset($useroles)){  if(in_array("add_subject",$useroles)){ ?>
-                         <li><a href="add_subject.php">Ajouter Module</a></li>
+                         <li><a href="add_subject.php">Ajouter  Module</a></li>
                          <?php } } ?>
-                         <li><a href="view_subject.php">Liste Modules</a></li>
+                         <li><a href="view_subject.php">Liste Module</a></li>
                      </ul>
                  </li>
                  <?php } } ?>

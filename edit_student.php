@@ -1,4 +1,3 @@
-
 <?php include('head.php');?>
 
 <?php include('header.php');?>
@@ -23,7 +22,7 @@ if(isset($_POST["btn_update"]))
             $salt = createSalt();
             $pass = hash('sha256', $salt . $passw);
             extract($_POST);
-            $q1="UPDATE `tbl_student` SET `stud_id`='$stud_id', `sfname`='$sfname',`slname`='$slname',`classname`='$classname',`semail`='$semail',`sgender`='$sgender',`sdob`='$sdob',`scontact`='$scontact',`saddress`='$saddress',`password`='$pass' WHERE `id`='".$_GET['id']."'";
+            $q1="UPDATE tbl_student SET stud_id='$stud_id', sfname='$sfname',slname='$slname',classname='$classname',semail='$semail',sgender='$sgender',sdob='$sdob',scontact='$scontact',saddress='$saddress',password='$pass' WHERE id='".$_GET['id']."'";
         }
         else
         {
@@ -41,7 +40,7 @@ if(isset($_POST["btn_update"]))
         $pass =$_POST['old_password'];
         extract($_POST);
 
-      $q1="UPDATE `tbl_student` SET `stud_id`='$stud_id', `sfname`='$sfname',`slname`='$slname',`classname`='$classname',`semail`='$semail',`sgender`='$sgender',`sdob`='$sdob',`scontact`='$scontact',`saddress`='$saddress',`password`='$pass' WHERE `id`='".$_GET['id']."'";
+      $q1="UPDATE tbl_student SET cne='$cne', cin='$cin',nom='$nom',prenom='$prenom',dateN='$dateN',semestre='$semestre',filiere='$filiere',situation='$situation' where  id='".$_GET["id"]."'";
     }
     
   
@@ -63,21 +62,21 @@ window.location="view_student.php";
 }
 ?>
 <?php
-$que="SELECT * FROM `tbl_student` WHERE id='".$_GET["id"]."'";
+$que="SELECT * FROM tbl_student WHERE id='".$_GET["id"]."'";
 $query=$conn->query($que);
 while($row=mysqli_fetch_array($query))
 {
     
     extract($row);
-$stud_id = $row['stud_id'];
-$fname = $row['sfname'];
-$lname = $row['slname'];
-$email = $row['classname'];
-$email = $row['semail'];
-$gender = $row['sgender'];
-$dob = $row['sdob'];
-$contact = $row['scontact'];
-$address = $row['saddress'];
+
+$cne = $row['cne'];
+$cin = $row['cin'];
+$nom = $row['nom'];
+$prenom = $row['prenom'];
+$dateN = $row['dateN'];
+$semestre = $row['semestre'];
+$filiere = $row['filiere'];
+$situation = $row['situation'];
 }
 
 ?> 
@@ -108,126 +107,104 @@ $address = $row['saddress'];
                                 <div class="input-states">
                                     <form class="form-horizontal" method="POST" enctype="multipart/form-data" name="studentform">
 
-                                   <input type="hidden" name="currnt_date" class="form-control" value="<?php echo $currnt_date;?>">
-                                   <input type="hidden" name="old_password" class="form-control" value="<?php echo $password;?>">
-                                   <div class="form-group">
-                                            <div class="row">
-                                                <label class="col-sm-3 control-label">Exam Seat No</label>
-                                                <div class="col-sm-9">
-                                                  <input type="text" name="stud_id" value="<?php echo $stud_id; ?>" class="form-control" placeholder="Exam Seat No" id="event" required>
-                                                </div>
-                                            </div>
+                                    <input type="hidden" name="currnt_date" class="form-control" value="<?php echo $currnt_date;?>">
+                                
+                                <div class="form-group">
+                                    <div class="row">
+                                        <label class="col-sm-3 control-label">CNE</label>
+                                        <div class="col-sm-9">
+                                          <input type="text" readonly  name="cne" class="form-control d-none d-lg-block" value="<?php echo $cne; ?>" placeholder="CNE" id="event" required="">
                                         </div>
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <label class="col-sm-3 control-label">First Name</label>
-                                                <div class="col-sm-9">
-                                                  <input type="text" name="sfname" class="form-control" placeholder="First Name" id="event" onkeydown="return alphaOnly(event);" value="<?php echo $sfname; ?>" required="">
-                                                </div>
-                                            </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <label class="col-sm-3 control-label">CIN</label>
+                                        <div class="col-sm-9">
+                                          <input type="text" name="cin" readonly  value="<?php echo $cin; ?>" class="form-control" placeholder="CIN" id="event"  required="">
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <label class="col-sm-3 control-label">Nom</label>
+                                        <div class="col-sm-9">
+                                          <input type="text" name="nom"  value="<?php echo $nom; ?>" class="form-control" placeholder="First Name" id="event" onkeydown="return alphaOnly(event);" required="">
+                                        </div>
+                                    </div>
+                                </div>
 
-                                         <div class="form-group">
-                                            <div class="row">
-                                                <label class="col-sm-3 control-label">Last Name</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text"  name="slname" id="lname" class="form-control" id="event" onkeydown="return alphaOnly(event);" placeholder="Last Name" value="<?php echo $slname; ?>" required="">
-                                                </div>
-                                            </div>
+                                 <div class="form-group">
+                                    <div class="row">
+                                        <label class="col-sm-3 control-label">Prenom</label>
+                                        <div class="col-sm-9">
+                                            <input type="text"  value="<?php echo $prenom; ?>"  name="prenom" id="lname" class="form-control" id="event" onkeydown="return alphaOnly(event);" placeholder="Last Name" required="">
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                      <div class="row">
+                                        <label class="col-sm-3 control-label">Date Naissance</label>
+                                        <div class="col-sm-9">
+                                          <input type="date"  value="<?php echo $dateN; ?>" name="dateN" class="form-control" placeholder="Birth Date">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+        <div class="row">
+                                        <label class="col-sm-3 control-label">Semestre</label>
+                                        <div class="col-sm-9">
+                                            <select type="text"   name="semestre" id="semestre" class="form-control" placeholder="Surveillant" required="">
+                                                <option value="<?php echo $semestre; ?>">Select Semestre</option>
+                                                <option value="s1">S1</option>
+                                                <option value="s2">S2</option>
+                                                <option value="s3">S3</option>
+                                                <option value="s4">S4</option>
+                                                <option value="s5">S5</option>
+                                                <option value="s6">S6</option>
+                                                 
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <label class="col-sm-3 control-label">Filiere</label>
+                                        <div class="col-sm-9">
+                                        <select type="text" name="filiere"   id="filiere" class="form-control"   placeholder="Class" required="">
+                                                <option value="<?php echo $filiere; ?>">--Select Filière--</option>
+                                                    <?php  
+                                                    $c1 = "SELECT * FROM tbl_class";
+                                                    $result = $conn->query($c1);
 
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <label class="col-sm-3 control-label">Class</label>
-                                                <div class="col-sm-9">
-                                                    <select type="text" name="classname" class="form-control"   placeholder="Class" required="">
-                                                        <option value="">--Select Class--</option>
-                                                            <?php  
-                                                            $c1 = "SELECT * FROM `tbl_class`";
-                                                            $result = $conn->query($c1);
+                                                    if ($result->num_rows > 0) {
+                                                        while ($row = mysqli_fetch_array($result)) {?>
+                                                            <option value="<?php echo $row["classname"];?>">
+                                                                <?php echo $row['classname'];?>
+                                                            </option>
+                                                            <?php
+                                                        }
+                                                    } else {
+                                                    echo "0 results";
+                                                        }
+                                                    ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                  <div class="form-group">
+                                    <div class="row">
+                                        <label class="col-sm-3 control-label">Situation</label>
+                                        <div class="col-sm-9">
+                                           <select name="situation"   id="gender" class="form-control" required="">
+                                            <option value="<?php echo $situation; ?>">--situation--</option>
+                                             <option value="inscrit">Inscrit</option>
+                                              <option value="non-inscrit">Non Inscrit</option>
+                                           </select>
+                                        </div>
+                                    </div>
+                                </div>
 
-                                                            if ($result->num_rows > 0) {
-                                                                while ($row = mysqli_fetch_array($result)) {?>
-                                                                    <option value="<?php echo $row["id"];?>" <?php if($classname==$row["id"]){ echo "Selected";}?>>
-                                                                        <?php echo $row['classname'];?>
-                                                                    </option>
-                                                                    <?php
-                                                                }
-                                                            } else {
-                                                            echo "0 results";
-                                                                }
-                                                            ?>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <label class="col-sm-3 control-label">Email</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" name="semail" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  placeholder="Email" value="<?php echo $semail; ?>" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <label class="col-sm-3 control-label">Password</label>
-                                                <div class="col-sm-9">
-                                                    <input type="password" name="password" id="password" placeholder="Password"  onkeyup='check();'  class="form-control">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <label class="col-sm-3 control-label">Confirm Password</label>
-                                                <div class="col-sm-9">
-                                                    <input type="password" name="cpassword" id="confirm_password" placeholder="Confirm Password"  onkeyup='check();'  class="form-control" >
-                                                    <span id="message"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-
-                                          <div class="form-group">
-                                            <div class="row">
-                                                <label class="col-sm-3 control-label">Gender</label>
-                                                <div class="col-sm-9">
-                                                   <select name="sgender" id="gender" class="form-control" required="">
-                                                    <option value=" ">--Select Gender--</option>
-                                                     <option value="Male" <?php if($gender=='Male'){ echo "Selected";}?>>Male</option>
-                                                      <option value="Female" <?php if($gender=='Female'){ echo "Selected";}?>>Female</option>
-                                                   </select>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                              <div class="row">
-                                                <label class="col-sm-3 control-label">Date Of Birth</label>
-                                                <div class="col-sm-9">
-                                                  <input type="date" name="sdob" value="<?php echo $sdob; ?>" class="form-control" placeholder="Birth Date">
-                                                </div>
-                                            </div>
-                                        </div>
-                                         
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <label class="col-sm-3 control-label">Parents Contact</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" name="scontact" class="form-control" placeholder="Parents Contact Number" id="tbNumbers" minlength="10" maxlength="10" onkeypress="javascript:return isNumber(event)" required="" value="<?php echo $scontact; ?>">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                         <div class="form-group">
-                                            <div class="row">
-                                                <label class="col-sm-3 control-label">Address</label>
-                                                <div class="col-sm-9">
-                                                    <textarea class="form-control" rows="4" name="saddress" placeholder="Address" style="height: 120px;"><?php echo $saddress;?></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
 
                                         <button type="submit" name="btn_update" class="btn btn-primary btn-flat m-b-30 m-t-30">Submit</button>
                                     </form>
@@ -257,7 +234,7 @@ $address = $row['saddress'];
 <div class="popup popup--icon -error js_error-popup popup--visible">
   <div class="popup__background"></div>
   <div class="popup__content">
-    <h3 class="popup__content__title">
+    <h3 class="popup_content_title">
       Error 
     </h1>
     <p><?php echo $_SESSION['error']; ?></p>
@@ -278,4 +255,3 @@ $address = $row['saddress'];
 Array.from(document.querySelectorAll('button[data-for]')).
 forEach(addButtonTrigger);
     </script>
-
