@@ -2,7 +2,7 @@
 include 'connect.php';
 session_start();
 
-$sql = "DELETE FROM `tbl_teacher` WHERE id='".$_GET["id"]."'";
+$sql = "DELETE FROM `tbl_teacher` WHERE idT='".$_GET["id"]."'";
 $res = $conn->query($sql) ;
  $_SESSION['success']=' Record Successfully Deleted';
 ?>
