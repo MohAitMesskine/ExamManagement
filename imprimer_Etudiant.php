@@ -18,7 +18,8 @@
                         <table  class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
+                                <th>Numero Examen</th>
+                                    <th>CNE</th>
                                     <th>CIN</th>
                                     <th>Nom</th>          
                                     <th>Prénom</th>
@@ -36,6 +37,7 @@
                                 ?>
                                 <tr>
                                 <?php $a= $row['lname']; ?>
+                                  <td><?php echo$row['id']; ?></td>
                                     <td><?php echo$row['cne']; ?></td>
                                     <td><?php echo$row['cin']; ?></td>
                                     <td><?php echo $row['lname']; ?></td>

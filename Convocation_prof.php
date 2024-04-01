@@ -68,7 +68,7 @@ if(isset($_GET['id']))
        <table  class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
+                                    <th>Numero_Matricule</th>
                                     <th>CIN</th>
                                     <th>Nom</th>          
                                     <th>Prénom</th>
@@ -112,7 +112,7 @@ if(isset($_GET['id']))
     <tbody>
         <?php 
             include 'connect.php';
-            $sql1 = "SELECT * FROM  `exam` ,`tbl_teacher` where tbl_teacher.tfname =exam.surUn";
+            $sql1 = "SELECT * FROM  `exam` ,`tbl_teacher` where tbl_teacher.tfname ='$a'";
             $result1 = $conn->query($sql1);
             while($row = $result1->fetch_assoc()) { 
         ?>

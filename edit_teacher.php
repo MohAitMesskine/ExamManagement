@@ -116,7 +116,7 @@ $address = $row['taddress'];
                                             <div class="row">
                                                 <label class="col-sm-3 control-label">Matricule</label>
                                                 <div class="col-sm-9">
-                                                  <input type="text" name="matricule" class="form-control" placeholder="First Name" id="event" onkeydown="return alphaOnly(event);" value="<?php echo $matricule; ?>" required="">
+                                                  <input type="text" readonly name="matricule" class="form-control" placeholder="First Name" id="event" onkeydown="return alphaOnly(event);" value="<?php echo $matricule; ?>" required="">
                                                 </div>
                                             </div>
                                         </div>
@@ -125,7 +125,7 @@ $address = $row['taddress'];
                                             <div class="row">
                                                 <label class="col-sm-3 control-label">CIN</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text"  name="cin" id="lname" class="form-control" id="event" onkeydown="return alphaOnly(event);" placeholder="Last Name" value="<?php echo $cin; ?>" required="">
+                                                    <input type="text" readonly name="cin" id="lname" class="form-control" id="event" onkeydown="return alphaOnly(event);" placeholder="Last Name" value="<?php echo $cin; ?>" required="">
                                                 </div>
                                             </div>
                                         </div>
