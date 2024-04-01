@@ -14,7 +14,7 @@
              $result_head_title = $conn->query($sql_head_title);
              $row_head_title = mysqli_fetch_array($result_head_title);
              ?>
-    <link rel="icon" type="image/png" sizes="16x16" href="./logo/img.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./img/logo.png">
      
     <title><?php echo $row_head_title['title'];?></title>
 
