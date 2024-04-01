@@ -15,7 +15,10 @@ extract($_POST);
    $req = "INSERT INTO admin (cne,cin,username,email,fname,lname) VALUES ('$matricule','$cin','professeur', '$temail','$tfname','$tlname')";
   if ($conn->query($sql) === TRUE) {
        $_SESSION['success']=' Record Successfully Added';
-      
+       if ($conn->query($req) === TRUE) {
+          $_SESSION['success']=' Record Successfully Added';
+         
+     }   
      ?>
      
 <script type="text/javascript">

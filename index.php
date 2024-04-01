@@ -138,7 +138,7 @@
                                         <tbody>
                                     <?php 
                                     include 'connect.php';
-                                  $sql1 = "SELECT * FROM  `exam`";
+                                   $sql1 = "SELECT * FROM  `exam`";
                                    $result1 = $conn->query($sql1);
                                    while($row = $result1->fetch_assoc()) { 
                                       ?>
