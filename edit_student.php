@@ -40,7 +40,7 @@ if(isset($_POST["btn_update"]))
         $pass =$_POST['old_password'];
         extract($_POST);
 
-      $q1="UPDATE tbl_student SET cne='$cne', cin='$cin',nom='$nom',prenom='$prenom',prenom='$dateN',dateN='$dateN',semestre='$semestre',filiere='$filiere',situation='$situation'";
+      $q1="UPDATE tbl_student SET cne='$cne', cin='$cin',nom='$nom',prenom='$prenom',dateN='$dateN',semestre='$semestre',filiere='$filiere',situation='$situation' where  id='".$_GET["id"]."'";
     }
     
   
@@ -113,7 +113,7 @@ $situation = $row['situation'];
                                     <div class="row">
                                         <label class="col-sm-3 control-label">CNE</label>
                                         <div class="col-sm-9">
-                                          <input type="text" name="cne" class="form-control" value="<?php echo $cne; ?>" placeholder="CNE" id="event" required="">
+                                          <input type="text" readonly  name="cne" class="form-control d-none d-lg-block" value="<?php echo $cne; ?>" placeholder="CNE" id="event" required="">
                                         </div>
                                     </div>
                                 </div>
@@ -121,7 +121,7 @@ $situation = $row['situation'];
                                     <div class="row">
                                         <label class="col-sm-3 control-label">CIN</label>
                                         <div class="col-sm-9">
-                                          <input type="text" name="cin"  value="<?php echo $cin; ?>" class="form-control" placeholder="CIN" id="event"  required="">
+                                          <input type="text" name="cin" readonly  value="<?php echo $cin; ?>" class="form-control" placeholder="CIN" id="event"  required="">
                                         </div>
                                     </div>
                                 </div>

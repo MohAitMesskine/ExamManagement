@@ -23,15 +23,16 @@ if(isset($_POST["btn_update"]))
             $salt = createSalt();
             $pass = hash('sha256', $salt . $passw);
             extract($_POST);
-
-      $q1="UPDATE `tbl_teacher` SET `tfname`='$tfname',`tlname`='$tlname',`classname`='$classname',`subjectname`='$subjectname',`temail`='$temail',`tgender`='$tgender',`tdob`='$tdob',`tcontact`='$tcontact',`taddress`='$taddress',`password`='$pass' WHERE `id`='".$_GET['id']."'";
+           
+          
+            $q1="UPDATE tbl_teacher SET matricule='$matricule',cin='$cin', tfname='$tfname',tlname='$tlname',classname='$classname',subjectname='$subjectname',temail='$temail',tgender='$tgender',tdob='$tdob',tcontact='$tcontact',taddress='$taddress' WHERE idT='".$_GET['id']."'";
         }
         else
         {
             $_SESSION['error']='Password and Confirm Password';
             ?>
             <script type="text/javascript">
-            window.location="edit_teacher.php?id=<?php echo $_GET['id']; ?>";
+            window.location="edit_student.php?id=<?php echo $_GET['id']; ?>";
             </script>
             <?php
         }
@@ -42,10 +43,10 @@ if(isset($_POST["btn_update"]))
         $pass =$_POST['old_password'];
         extract($_POST);
 
-      $q1="UPDATE `tbl_teacher` SET `tfname`='$tfname',`tlname`='$tlname',`classname`='$classname',`subjectname`='$subjectname',`temail`='$temail',`tgender`='$tgender',`tdob`='$tdob',`tcontact`='$tcontact',`taddress`='$taddress',`password`='$pass' WHERE `id`='".$_GET['id']."'";
+        $q1="UPDATE tbl_teacher SET matricule='$matricule',cin='$cin', tfname='$tfname',tlname='$tlname',classname='$classname',subjectname='$subjectname',temail='$temail',tgender='$tgender',tdob='$tdob',tcontact='$tcontact',taddress='$taddress' WHERE idT='".$_GET['id']."'";
     }
     
-    
+  
     if ($conn->query($q1) === TRUE) {
       $_SESSION['success']=' Record Successfully Updated';
      ?>
@@ -64,12 +65,15 @@ window.location="view_teacher.php";
 }
 ?>
 <?php
-$que="SELECT * FROM `tbl_teacher` WHERE id='".$_GET["id"]."'";
+$que="SELECT * FROM tbl_teacher WHERE idT='".$_GET["id"]."'";
 $query=$conn->query($que);
 while($row=mysqli_fetch_array($query))
 {
     
     extract($row);
+
+$matricule = $row['matricule'];
+$cin = $row['cin'];
 $fname = $row['tfname'];
 $lname = $row['tlname'];
 $email = $row['classname'];
@@ -79,39 +83,54 @@ $gender = $row['tgender'];
 $dob = $row['tdob'];
 $contact = $row['tcontact'];
 $address = $row['taddress'];
-$password = $row['password'];
 }
 
 ?> 
 
         <div class="page-wrapper">
-       
+            
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-primary">Teacher Management</h3> </div>
+                    <h3 class="text-primary">MOdifier Professseur</h3> </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item active">Add Teacher Management</li>
+                        <li class="breadcrumb-item active">Add Student Management</li>
                     </ol>
                 </div>
             </div>
             
             <div class="container-fluid">
-              
+                
+               
                 <div class="row">
-                    <div class="col-lg-8" style="    margin-left: 10%;">
+                    <div class="col-lg-8" style="margin-left: 10%;">
                         <div class="card">
                             <div class="card-title">
                                
                             </div>
                             <div class="card-body">
                                 <div class="input-states">
-                                    <form class="form-horizontal" method="POST" enctype="multipart/form-data" name="teacherform">
-<input type="hidden" name="old_password" class="form-control" value="<?php echo $password;?>">
-                                   <input type="hidden" name="currnt_date" class="form-control" value="<?php echo $currnt_date;?>">
+                                    <form class="form-horizontal" method="POST" enctype="multipart/form-data" name="studentform">
+                                    <div class="form-group">
+                                            <div class="row">
+                                                <label class="col-sm-3 control-label">Matricule</label>
+                                                <div class="col-sm-9">
+                                                  <input type="text" name="matricule" class="form-control" placeholder="First Name" id="event" onkeydown="return alphaOnly(event);" value="<?php echo $matricule; ?>" required="">
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                        <div class="form-group">
+                                         <div class="form-group">
+                                            <div class="row">
+                                                <label class="col-sm-3 control-label">CIN</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text"  name="cin" id="lname" class="form-control" id="event" onkeydown="return alphaOnly(event);" placeholder="Last Name" value="<?php echo $cin; ?>" required="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                 
+                                    <div class="form-group">
                                             <div class="row">
                                                 <label class="col-sm-3 control-label">First Name</label>
                                                 <div class="col-sm-9">
@@ -136,7 +155,7 @@ $password = $row['password'];
                                                     <select type="text" name="classname" class="form-control" id="class_id"  placeholder="Class" required="">
                                                         <option value="">--Select Class--</option>
                                                             <?php  
-                                                            $c1 = "SELECT * FROM `tbl_class`";
+                                                            $c1 = "SELECT * FROM tbl_class";
                                                             $result = $conn->query($c1);
 
                                                             if ($result->num_rows > 0) {
@@ -162,7 +181,7 @@ $password = $row['password'];
                     <select type="text" name="subjectname" id="subject_id" class="form-control"   placeholder="subject" required="">
                         <option value="">--Select Subject--</option>
                             <?php  
-                            $c1 = "SELECT * FROM `tbl_subject`";
+                            $c1 = "SELECT * FROM tbl_subject";
                             $result = $conn->query($c1);
 
                             if ($result->num_rows > 0) {
@@ -191,23 +210,7 @@ $password = $row['password'];
                                             </div>
                                         </div>
 
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <label class="col-sm-3 control-label">Password</label>
-                                                <div class="col-sm-9">
-                                                    <input type="password" name="password" id="password" placeholder="Password"  onkeyup='check();'  class="form-control">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <label class="col-sm-3 control-label">Confirm Password</label>
-                                                <div class="col-sm-9">
-                                                    <input type="password" name="cpassword" id="confirm_password" placeholder="Confirm Password"  onkeyup='check();'  class="form-control" >
-                                                    <span id="message"></span>
-                                                </div>
-                                            </div>
-                                        </div>
+                                       
                                         
 
                                           <div class="form-group">
@@ -250,6 +253,7 @@ $password = $row['password'];
                                             </div>
                                         </div>
 
+
                                         <button type="submit" name="btn_update" class="btn btn-primary btn-flat m-b-30 m-t-30">Submit</button>
                                     </form>
                                 </div>
@@ -259,7 +263,7 @@ $password = $row['password'];
                   
                 </div>
                 
-               
+          
 <?php include('footer.php');?>
 <link rel="stylesheet" href="popup_style.css">
 <script>
@@ -278,7 +282,7 @@ $password = $row['password'];
 <div class="popup popup--icon -error js_error-popup popup--visible">
   <div class="popup__background"></div>
   <div class="popup__content">
-    <h3 class="popup__content__title">
+    <h3 class="popup_content_title">
       Error 
     </h1>
     <p><?php echo $_SESSION['error']; ?></p>
@@ -299,12 +303,3 @@ $password = $row['password'];
 Array.from(document.querySelectorAll('button[data-for]')).
 forEach(addButtonTrigger);
     </script>
-    <script type="text/javascript">
- $('#class_id').change(function(){
-    $("#subject_id").val('');
-    $("#subject_id").children('option').hide();
-    var class_id=$(this).val();
-    $("#subject_id").children("option[data-id="+class_id+ "]").show();
-    
-  });
-</script>
